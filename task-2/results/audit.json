@@ -1,0 +1,88 @@
+{
+  "verified": true,
+  "strict_split": true,
+  "same_timestamp_context_test": true,
+  "same_user_same_timestamp_groups": 25211,
+  "test_events": 9683,
+  "test_users": 162,
+  "user_cluster_bootstrap_vs_base": {
+    "rating_weak_kl": {
+      "recall@10": {
+        "user_balanced_difference": -0.0025112048406902786,
+        "ci95": [
+          -0.01891058816965675,
+          0.016368031399019805
+        ],
+        "users": 162
+      },
+      "ndcg@10": {
+        "user_balanced_difference": -0.0067053371869270125,
+        "ci95": [
+          -0.014519365580840776,
+          0.0006324177204581931
+        ],
+        "users": 162
+      },
+      "predicted_rating": {
+        "user_balanced_difference": 0.2884565961713645,
+        "ci95": [
+          0.2698158042600379,
+          0.3089858753606621
+        ],
+        "users": 162
+      }
+    },
+    "rating_strong_kl": {
+      "recall@10": {
+        "user_balanced_difference": 0.005581366216377395,
+        "ci95": [
+          -0.0013578118379584901,
+          0.0128974181043762
+        ],
+        "users": 162
+      },
+      "ndcg@10": {
+        "user_balanced_difference": 0.0007508759458209574,
+        "ci95": [
+          -0.0030650882493506748,
+          0.00417078905007526
+        ],
+        "users": 162
+      },
+      "predicted_rating": {
+        "user_balanced_difference": 0.13826822861355348,
+        "ci95": [
+          0.13056223298754024,
+          0.14652944665920234
+        ],
+        "users": 162
+      }
+    },
+    "rating_novelty": {
+      "recall@10": {
+        "user_balanced_difference": -0.002765062156418328,
+        "ci95": [
+          -0.018471084090563868,
+          0.015612461495030264
+        ],
+        "users": 162
+      },
+      "ndcg@10": {
+        "user_balanced_difference": -0.005031115272469419,
+        "ci95": [
+          -0.01269406279097082,
+          0.0024037855907526285
+        ],
+        "users": 162
+      },
+      "predicted_rating": {
+        "user_balanced_difference": 0.281411873133082,
+        "ci95": [
+          0.2640481104931729,
+          0.30027378829227697
+        ],
+        "users": 162
+      }
+    }
+  }
+}

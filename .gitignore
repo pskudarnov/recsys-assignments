@@ -1,0 +1,6 @@
+# Downloaded dataset and local environment
+*.zip
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

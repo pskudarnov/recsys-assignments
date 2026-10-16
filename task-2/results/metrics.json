@@ -1,0 +1,249 @@
+{
+  "config": {
+    "data_dir": "work",
+    "out_dir": "outputs/results",
+    "seed": 42,
+    "length": 30,
+    "batch": 256,
+    "base_epochs": 3,
+    "reward_epochs": 5,
+    "rl_examples": 6000,
+    "lr": 0.001,
+    "rl_lr": 0.0001,
+    "device": "mps",
+    "train_rating_mean": 0.6284026199535252
+  },
+  "data": {
+    "rows": 100000,
+    "train_cutoff_timestamp": 889237269,
+    "val_cutoff_timestamp": 891382309,
+    "train_examples": 78322,
+    "val_examples": 9664,
+    "test_examples": 9683,
+    "test_users": 162,
+    "train_events": 79999,
+    "val_events": 10001,
+    "test_events": 10000,
+    "strict_cutoff_check": true,
+    "train_items": 1616
+  },
+  "base_training": [
+    {
+      "epoch": 1,
+      "train_ce": 6.776405971813825,
+      "val_ce": 6.558901485643889
+    },
+    {
+      "epoch": 2,
+      "train_ce": 6.340505902284111,
+      "val_ce": 6.182180178792853
+    },
+    {
+      "epoch": 3,
+      "train_ce": 6.062401444304223,
+      "val_ce": 6.086086662192094
+    }
+  ],
+  "reward_training": [
+    {
+      "epoch": 1,
+      "train_mse": 0.09537745167324746,
+      "val": {
+        "mae": 0.22445580077169475,
+        "rmse": 0.28189012661555973,
+        "train_mean_baseline_rmse": 0.27429553300404935
+      }
+    },
+    {
+      "epoch": 2,
+      "train_mse": 0.07243626740048914,
+      "val": {
+        "mae": 0.21335551158304555,
+        "rmse": 0.2678749871805503,
+        "train_mean_baseline_rmse": 0.27429553300404935
+      }
+    },
+    {
+      "epoch": 3,
+      "train_mse": 0.06582769145276032,
+      "val": {
+        "mae": 0.21024823974469517,
+        "rmse": 0.2647219743329869,
+        "train_mean_baseline_rmse": 0.27429553300404935
+      }
+    },
+    {
+      "epoch": 4,
+      "train_mse": 0.06284777366014477,
+      "val": {
+        "mae": 0.20965620702894294,
+        "rmse": 0.2630984732141654,
+        "train_mean_baseline_rmse": 0.27429553300404935
+      }
+    },
+    {
+      "epoch": 5,
+      "train_mse": 0.06090809242933794,
+      "val": {
+        "mae": 0.2080665815510596,
+        "rmse": 0.26197987445575865,
+        "train_mean_baseline_rmse": 0.27429553300404935
+      }
+    }
+  ],
+  "reward_test": {
+    "mae": 0.21620582147730993,
+    "rmse": 0.2663468209553789,
+    "train_mean_baseline_rmse": 0.28522921008117835
+  },
+  "policies": {
+    "base": {
+      "metrics": {
+        "n": 9683,
+        "n_positive": 5465,
+        "recall@10": 0.12981513993597027,
+        "ndcg@10": 0.06420865949231164,
+        "user_balanced_recall@10": 0.13225970863261938,
+        "user_balanced_ndcg@10": 0.06751243418066577,
+        "positive_recall@10": 0.13064958828911252,
+        "positive_ndcg@10": 0.06421839209460364,
+        "predicted_rating": 3.592021032540276,
+        "catalog_coverage@10": 0.34715346534653463,
+        "top1_item_share": 0.0185066611587318,
+        "top10_items_share": 0.162325725498296,
+        "mean_train_popularity": 189.56737581328102,
+        "seen_rate": 0.0
+      },
+      "rollout": {
+        "predicted_rating_by_step": [
+          3.5163872241973877,
+          3.492380142211914,
+          3.5706801414489746,
+          3.508333444595337,
+          3.535903215408325
+        ],
+        "repeat_rate_by_step": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "rating_weak_kl": {
+      "rl_training": {
+        "mean_train_expected_reward": 0.6582785546779633,
+        "mean_train_kl": 0.061013828574990235
+      },
+      "metrics": {
+        "n": 9683,
+        "n_positive": 5465,
+        "recall@10": 0.11938448827842611,
+        "ndcg@10": 0.0577168243094789,
+        "user_balanced_recall@10": 0.1297485037919291,
+        "user_balanced_ndcg@10": 0.060807096993738756,
+        "positive_recall@10": 0.1365050320219579,
+        "positive_ndcg@10": 0.06580133721679902,
+        "predicted_rating": 3.8530035613625424,
+        "catalog_coverage@10": 0.29826732673267325,
+        "top1_item_share": 0.03029019931839306,
+        "top10_items_share": 0.24477951048228855,
+        "mean_train_popularity": 217.33211814520294,
+        "seen_rate": 0.0
+      },
+      "rollout": {
+        "predicted_rating_by_step": [
+          3.815974712371826,
+          3.9652490615844727,
+          3.926682949066162,
+          3.9096951484680176,
+          3.956343173980713
+        ],
+        "repeat_rate_by_step": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "rating_strong_kl": {
+      "rl_training": {
+        "mean_train_expected_reward": 0.6535880515972773,
+        "mean_train_kl": 0.02710057981312275
+      },
+      "metrics": {
+        "n": 9683,
+        "n_positive": 5465,
+        "recall@10": 0.13281007952080967,
+        "ndcg@10": 0.0649284666361888,
+        "user_balanced_recall@10": 0.13784107484899674,
+        "user_balanced_ndcg@10": 0.06826331012648673,
+        "positive_recall@10": 0.14217749313815187,
+        "positive_ndcg@10": 0.06959187937554215,
+        "predicted_rating": 3.714587789046965,
+        "catalog_coverage@10": 0.33292079207920794,
+        "top1_item_share": 0.02355674894144377,
+        "top10_items_share": 0.19573479293607354,
+        "mean_train_popularity": 196.72716100382112,
+        "seen_rate": 0.0
+      },
+      "rollout": {
+        "predicted_rating_by_step": [
+          3.6608920097351074,
+          3.7551839351654053,
+          3.7394731044769287,
+          3.6405975818634033,
+          3.6581828594207764
+        ],
+        "repeat_rate_by_step": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "rating_novelty": {
+      "rl_training": {
+        "mean_train_expected_reward": 0.45527590438723564,
+        "mean_train_kl": 0.059288283654799066
+      },
+      "metrics": {
+        "n": 9683,
+        "n_positive": 5465,
+        "recall@10": 0.12103686873902716,
+        "ndcg@10": 0.058180789993705455,
+        "user_balanced_recall@10": 0.12949464647620104,
+        "user_balanced_ndcg@10": 0.062481318908196345,
+        "positive_recall@10": 0.14016468435498627,
+        "positive_ndcg@10": 0.06705369083062195,
+        "predicted_rating": 3.8502492436819256,
+        "catalog_coverage@10": 0.3162128712871287,
+        "top1_item_share": 0.030610348032634516,
+        "top10_items_share": 0.24808427140349065,
+        "mean_train_popularity": 208.25521016213983,
+        "seen_rate": 0.0
+      },
+      "rollout": {
+        "predicted_rating_by_step": [
+          3.814901113510132,
+          3.9448111057281494,
+          3.923121452331543,
+          3.912381649017334,
+          3.964658498764038
+        ],
+        "repeat_rate_by_step": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}
